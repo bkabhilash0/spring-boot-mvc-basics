@@ -1,5 +1,6 @@
 package com.spring.rest.api.spring_mvc.model;
 
+import com.spring.rest.api.spring_mvc.validation.CourseCode;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,4 +23,8 @@ public class Customer {
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "Only 5 Chars/Digits Allowed!")
     private String postalCode;
+
+    @NotNull(message = "Is Required")
+    @CourseCode(value = "TOPS",message = "Must Start with TOPS")
+    private String courseCode;
 }
